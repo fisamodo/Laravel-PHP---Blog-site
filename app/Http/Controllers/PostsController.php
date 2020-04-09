@@ -56,8 +56,25 @@ class PostsController extends Controller
     {
         $this->validate($request,[
             'title' =>'required',
-            'body'=> 'required'
+            'body'=> 'required',
+            'cover_image' => 'image|nullable||max:1999'  //apache default upload size iz 2MB, so we limit to 1999
         ]);
+
+        //Handle File Upload
+        if($request->hasFile('cover_image')){
+            //GET filename with the extension
+            $filenameWithExt = $request->file('cover_image')->getClientOriginalImage();
+            //Get just filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            //get just extension
+            $extension = $request->file('cover_image')->getOriginalClientExtension();
+            //filename to store
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+            //upload image
+            $path = $request->file('cover_image')->storeAs('public/cover_images',$fileNameToStore);
+        }else{
+            $fileNameToStore ='noimage.jpeg';
+        }
         //Create post
         $post = new Post;
         $post->title = $request->input('title');
