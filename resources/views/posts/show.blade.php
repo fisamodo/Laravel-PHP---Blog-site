@@ -2,10 +2,10 @@
 
 @section('content')
 <a href="/posts" class="btn btn-outline-warning">Go Back</a>
-    <h1>{{$post->title}}</h1>
+    <h1>{{$post->title}}</h1> 
     <img style="width:35%" src="/storage/cover_images/{{$post->cover_image}}">
     <br><br>
-    <div>
+    <div style="width:70%">
         {!!$post->body!!}
     </div>
     <hr>
