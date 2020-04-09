@@ -11,4 +11,4 @@ I wanted to explore the depths of PHP using Laravel framework. My goal was to be
 In this project i used things like: Routing, Models, Database Migrations, Blade views, Authentication and Access control, CRUD, File uploading to my blog, and controllers.
 
 I used Composer to install Laravel and to install other addons i needed during the making of this app.
-Database wasa hosted by XAMPP using MYSQL and Apache. I also used artisan for some php things
+Database was hosted by XAMPP using MYSQL and Apache. I also used artisan for some php things
