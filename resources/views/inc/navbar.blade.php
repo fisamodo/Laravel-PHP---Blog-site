@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-primary mb-3">
     <div class="container">
-        <a href="/" class="navbar-brand">{{config('app.name','LSAPP')}}</a>
+        <a href="/" class="navbar-brand">My Sports Blog</a>
         <button class="navbar-toggler" type="button"
         data-toggle="collapse" data-target="#mobile-nav">
             <span class="navbar-toggle-icon"></span>
@@ -17,12 +17,11 @@
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
                 @if (Auth::guest())
-                    <li><a href="{{ route('login') }}">Login</a></li>
-                    <li><a href="{{ route('register') }}">Register</a></li>
+                    
                 @else
                  
                     <ul>
-                        <li><a href="/dashboard" class="nav-link">Dashboard</a></li>
+                        <li><a href="/home" class="nav-link">Dashboard</a></li>
                         <li>
                             <a href="{{ route('logout') }}"
                             onclick="event.preventDefault();
@@ -30,7 +29,6 @@
                             class="nav-link">
                             Logout
                             </a>
-
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 {{ csrf_field() }}
                             </form>
